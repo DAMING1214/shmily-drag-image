@@ -1,21 +1,54 @@
 <template>
 	<view>
-		<shmily-image-drag :list.sync="list" :number="6" :imageWidth="230"></shmily-image-drag>
+		<shmily-drag-view :list.sync="list" :viewWidth="230" :viewHeight="100" idName="id" titleName="title"></shmily-drag-view>
 	</view>
 </template>
 
 <script>
-  import shmilyImageDrag from '@/components/shmily-drag-image/shmily-drag-image.vue'
+  import shmilyDragView from '@/components/shmily-drag-view/shmily-drag-view.vue'
 	export default {
     components:{
-      shmilyImageDrag
+      shmilyDragView
     },
 		data() {
 			return {
-        // 排序后的图片列表
-				list: []
+        // 排序后的列表
+				list: [
+          {
+            id: this.guid(),
+            title: '人事管理学1'
+          },
+          {
+            id: this.guid(),
+            title: '人事管理学2'
+          },
+          {
+            id: this.guid(),
+            title: '人事管理学3'
+          },
+          {
+            id: this.guid(),
+            title: '人事管理学4'
+          },
+          {
+            id: this.guid(),
+            title: '人事管理学5'
+          },
+          {
+            id: this.guid(),
+            title: '人事管理学6'
+          }
+        ]
 			}
-		}
+		},
+    methods: {
+      guid() {
+      	function S4() {
+      		return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+      	}
+      	return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
+      }
+    }
 	}
 </script>
 
