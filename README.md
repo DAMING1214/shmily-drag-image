@@ -1,4 +1,4 @@
-# 图片拖拽排序插件
+# uni-app div拖拽排序插件
 ## shmily-drag-view
 实际效果建议下载示例项目看看
 [点我快速预览 Web 版](http://static-11ea0c21-6b8f-47f7-b77f-cb0c7ea3f355.bspapp.com/shmily-drag-view/)
