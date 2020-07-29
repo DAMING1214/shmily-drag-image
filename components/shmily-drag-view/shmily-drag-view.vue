@@ -68,7 +68,7 @@ export default {
   },
   computed: {
     areaHeight() {
-      return (Math.ceil((this.dataList.length + 1) / this.cols) - 1) * this.viewHeight + 'rpx'
+      return Math.ceil(this.dataList.length / this.cols) * this.viewHeight + 'rpx'
     },
     childWidth() {
       return this.viewWidth / 1.1 - 2 + 'rpx'
@@ -130,7 +130,7 @@ export default {
               obj.absY = Math.floor(obj.index / this.cols)
               this.$nextTick(() => {
                 obj.x = obj.absX * this.viewWidth + 'rpx'
-                obj.y = obj.absY * this.viewWidth + 'rpx'
+                obj.y = obj.absY * this.viewHeight + 'rpx'
               })
             }
             if (item.index < index && obj.index <= index && obj.index > item.index) {
@@ -141,7 +141,7 @@ export default {
               obj.absY = Math.floor(obj.index / this.cols)
               this.$nextTick(() => {
                 obj.x = obj.absX * this.viewWidth + 'rpx'
-                obj.y = obj.absY * this.viewWidth + 'rpx'
+                obj.y = obj.absY * this.viewHeight + 'rpx'
               })
             }
           }
@@ -154,7 +154,7 @@ export default {
     },
     touchstart(item) {
       this.dataList.forEach(v => {
-        v.zIndex = v.index
+        v.zIndex = v.index + 10
       })
       item.zIndex = 99
       item.scale = 1.1
@@ -208,6 +208,8 @@ export default {
     .add {
       border: 1rpx dashed rgba(0, 0, 0, 0);
       opacity: 0;
+      position: absolute;
+      z-index: 0;
     }
   }
 }
