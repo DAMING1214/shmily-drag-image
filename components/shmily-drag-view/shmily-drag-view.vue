@@ -20,7 +20,7 @@
       <!-- 保留 -->
       <view
         class="add"
-        :style="{ width: viewWidth, height: viewHeight }"
+        :style="{ width: viewWidth + 'rpx', height: viewHeight + 'rpx' }"
       >
       </view>
     </movable-area>
