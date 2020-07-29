@@ -1,5 +1,8 @@
 <template>
 	<view>
+    <view v-for="item in list" :key="item">
+      <image :src="item"></image>
+    </view>
 		<shmily-image-drag :list.sync="list" :number="6" :imageWidth="230"></shmily-image-drag>
 	</view>
 </template>
@@ -13,7 +16,7 @@
 		data() {
 			return {
         // 排序后的图片列表
-				list: []
+				list: ['/static/logo.png', '/static/logo.png']
 			}
 		}
 	}

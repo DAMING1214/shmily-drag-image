@@ -97,7 +97,34 @@ export default {
     query.select('.con').boundingClientRect(data => {
       this.cols = Math.floor(data.width / this.itemWidth)
     })
-    query.exec()
+    query.exec(() => {
+      for (let item of this.list) {
+        let absX = this.imageList.length % this.cols
+        let absY = Math.floor(this.imageList.length / this.cols)
+        let x = absX * this.imageWidth + 'rpx'
+        let y = absY * this.imageWidth + 'rpx'
+        
+        this.imageList.push({
+          src: item,
+          x,
+          y,
+          oldX: x,
+          oldY: y,
+          absX,
+          absY,
+          scale: 1,
+          zIndex: 9,
+          opacity: 1,
+          index: this.imageList.length,
+          id: this.guid()
+        })
+      
+        this.add.x = (this.imageList.length % this.cols) * this.imageWidth + 'rpx'
+        this.add.y = Math.floor(this.imageList.length / this.cols) * this.imageWidth + 'rpx'
+      
+        this.sortList()
+      }
+    })
   },
   methods: {
     onChange(e, item) {
