@@ -26,7 +26,7 @@ export default {
 
 属性名 | 类型 | 默认值 | 说明
 :-:|:-:|:-:|---
-list | Array | [ ] | 排序后图片列表
+list | Array | [ ] | 排序后数组
 viewWidth | Number | 230 | 父容器宽度（实际显示的宽度为 viewWidth / 1.1 ），单位 rpx
 viewHeight | Number | 100 | 父容器高度（实际显示的高度为 viewHeight / 1.2 ），单位 rpx
 idName | String | id | id属性名(不可重复)
