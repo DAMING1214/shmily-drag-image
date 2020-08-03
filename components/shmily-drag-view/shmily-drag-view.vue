@@ -1,12 +1,13 @@
 <template>
   <view class="con">
     <movable-area class="area" :style="{ height: areaHeight }">
-      <block v-for="(item, index) in dataList" :key="item[idName]">
+      <block v-for="(item, index) in dataList" :key="item.id">
         <movable-view
           class="view"
           :x="item.x"
           :y="item.y"
           direction="all"
+          :damping="40"
           @change="onChange($event, item)"
           @touchstart="touchstart(item)"
           @mousedown="touchstart(item)"
@@ -14,7 +15,7 @@
           @mouseup="touchend(item)"
           :style="{ width: viewWidth + 'rpx', height: viewHeight + 'rpx', 'z-index': item.zIndex, opacity: item.opacity }"
         >
-          <view class="area-con" :style="{ width: childWidth, height: childHeight, lineHeight: childHeight, transform: 'scale(' + item.scale + ')' }" v-text="item[titleName]"></view>
+          <view class="area-con" :style="{ width: childWidth, height: childHeight, lineHeight: childHeight, transform: 'scale(' + item.scale + ')' }" v-text="item.title"></view>
         </movable-view>
       </block>
       <!-- 保留 -->
@@ -177,7 +178,7 @@ export default {
       })
       for (let i = 0; i < temp.length; i++) {
         for (let s of this.list) {
-          if(temp[i][this.idName] == s[this.idName]){
+          if(temp[i].id == s[this.idName]){
             temp[i] = s
           }
         }
