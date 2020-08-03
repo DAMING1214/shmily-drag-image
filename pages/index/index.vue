@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<shmily-drag-view :list.sync="list" :viewWidth="230" :viewHeight="100" idName="id" titleName="title"></shmily-drag-view>
+		<shmily-drag-view :list.sync="list" :viewWidth="229" :viewHeight="100" idName="id" titleName="title"></shmily-drag-view>
 	</view>
 </template>
 
